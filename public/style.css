@@ -24,6 +24,11 @@
 }
 
 .logo > h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+  padding-left: 70px;
   color: var(--main-light);
 }
 
@@ -188,4 +193,15 @@ video {
   #showChat {
     display: flex;
   }
+}
+ul {
+  list-style-type: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: var(--main-darklg);
+}
+
+li {
+  float: left;
 }

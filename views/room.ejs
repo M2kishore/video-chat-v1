@@ -13,14 +13,34 @@
     </script>
   </head>
   <body>
-    <div class="header">
-      <div class="logo">
+    <ul>
+      <li>
         <div class="header__back">
-          <i class="fas fa-angle-left"></i>
-        </div>
-        <h3>Video Chat</h2>
+        <i class="fas fa-angle-left"></i>
       </div>
-    </div>  
+      </li>
+      <li>
+        <div class="logo">
+          <h3>Video Chat</h3>
+        </div>
+      </li>
+      <li style="float:right; padding: 10px;">
+          <div id="stopVideo" class="options__button">
+            <i class="fa fa-video-camera"></i>
+          </div>
+      </li>
+      <li style="float:right; padding: 10px;">
+          <div id="muteButton" class="options__button">
+            <i class="fa fa-microphone"></i>
+          </div>
+      </li>
+      <li style="float:right; padding: 10px;">
+        <div id="showChat" class="options__button">
+          <i class="fa fa-comment"></i>
+        </div>
+      </li>
+    </ul>
+        
     <div class="main">  
     <div class="main__left">
       <div class="videos__group">
@@ -29,17 +49,6 @@
         </div>
       </div>
       <div class="options">
-        <div class="options__left">
-          <div id="stopVideo" class="options__button">
-            <i class="fa fa-video-camera"></i>
-          </div>
-          <div id="muteButton" class="options__button">
-            <i class="fa fa-microphone"></i>
-          </div>
-          <div id="showChat" class="options__button">
-            <i class="fa fa-comment"></i>
-          </div>
-        </div>
         <div class="options__right">
           <div id="inviteButton" class="options__button">
             <i class="fas fa-user-plus"></i>
