@@ -129,6 +129,7 @@ inviteButton.addEventListener("click", (e) => {
 });
 
 socket.on("createMessage", (message, userName) => {
+  
   messages.innerHTML =
     messages.innerHTML +
     `<div class="message">
