@@ -1,4 +1,7 @@
-let state = {};
+let state = {
+  members:[],
+  messages:[]
+};
 //start firebase
 var firebaseConfig = {
   //change the api key as your wish
@@ -44,7 +47,6 @@ function getMessages() { //you need to figure out whether it is 'me' or not
         <span>${message.text}</span>
     </div>`;
       })
-      console.log(state)
     }
   }).catch((err) => {
     console.log("Error getting document ", err);
