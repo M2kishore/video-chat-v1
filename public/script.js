@@ -32,7 +32,7 @@ function addMessage() {
     });
 }
 
-function getMessages() { //you need to figure out whether it is 'me' or not
+function getMessages() {
   let messages = document.querySelector(".messages");
   docRef.get().then((doc) => {
     if (doc.exists) {
@@ -42,7 +42,7 @@ function getMessages() { //you need to figure out whether it is 'me' or not
         messages.innerHTML = messages.innerHTML+
         `<div class="message">
         <b><i class="far fa-user-circle"></i> <span> ${
-          message.from
+          message.from === user ? "me" : message.from
         }</span> </b>
         <span>${message.text}</span>
     </div>`;
