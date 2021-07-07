@@ -130,8 +130,10 @@ inviteButton.addEventListener("click", (e) => {
 
 socket.on("createMessage", (message, userName) => {
   state = {
-    members: members.indexOf(userName) !== -1  ? (members.push(username)) : (members),
-    messages: [...messages,{
+    //check if member already present
+    members: state.members.indexOf(userName) !== -1  ? (members.push(username)) : (members),
+    //adds message
+    messages: [...state.messages,{
       from: userName,
       text: message
     }]
