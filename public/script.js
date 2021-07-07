@@ -1,4 +1,4 @@
-let state;
+let state = {};
 //start firebase
 var firebaseConfig = {
   //change the api key as your wish
