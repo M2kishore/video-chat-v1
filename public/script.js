@@ -197,7 +197,7 @@ socket.on("createMessage", (message, userName) => {
 
     state = {
       //check if member already present
-      members: state.members.indexOf(userName) !== -1  ? (members.push(username)) : (members),
+      members: state.members.indexOf(userName) !== -1  ? (state.members.push(username)) : (state.members),
       //adds message
       messages: [...state.messages,{
         from: userName,
