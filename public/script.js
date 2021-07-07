@@ -128,18 +128,7 @@ inviteButton.addEventListener("click", (e) => {
   );
 });
 
-socket.on("createMessage", (message, userName) => {
-  console.log('create message is is called');
-  state = {
-    //check if member already present
-    members: state.members.indexOf(userName) !== -1  ? (members.push(username)) : (members),
-    //adds message
-    messages: [...state.messages,{
-      from: userName,
-      text: message
-    }]
-  }
-  
+socket.on("createMessage", (message, userName) => {  
   messages.innerHTML =
     messages.innerHTML +
     `<div class="message">
