@@ -129,6 +129,13 @@ inviteButton.addEventListener("click", (e) => {
 });
 
 socket.on("createMessage", (message, userName) => {
+  state = {
+    members: members.indexOf(userName) !== -1  ? (members.push(username)) : (members),
+    messages: [...messages,{
+      from: userName,
+      text: message
+    }]
+  }
   
   messages.innerHTML =
     messages.innerHTML +

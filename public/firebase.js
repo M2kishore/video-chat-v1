@@ -12,35 +12,40 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 var docRef = db.collection("room").doc(ROOM_ID);
 
+//adds new message every 10 seconds
+setInterval(addMessage, 10000);
+
 function addMessage() {
   docRef.set({
-    members: ['person1', 'person2'],
-    messages: [{
-      from: 'person1',
-      text: 'hi'
-    },
-    {
-      from: 'person2',
-      text: 'hello'
-    }]
+    ...state
   })
     .then(() => {
-      console.log("Room Created Successfuly");
+      console.log("Messages saved");
     })
     .catch((error) => {
       console.error("Error adding document: ", error);
     });
 }
 
-function getMessages() {
+function getMessages() { //you need to figure out whether it is 'me' or not
+  let messages = document.querySelector(".messages");
   docRef.get().then((doc) => {
     if (doc.exists) {
       state = doc.data();
+      //pushing messages to messages
+      state.messages.map(message => {
+        messages.innerHTML = messages.innerHTML+
+        `<div class="message">
+        <b><i class="far fa-user-circle"></i> <span> ${
+          message.from
+        }</span> </b>
+        <span>${message.text}</span>
+    </div>`;
+      })
       console.log(state)
     }
   }).catch((err) => {
     console.log("Error getting document ", err);
   })
 }
-addMessage();
-getMessages();
+getMessages()
