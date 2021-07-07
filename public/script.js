@@ -72,7 +72,6 @@ const addVideoStream = (video, stream) => {
 
 let text = document.querySelector("#chat_message");
 let send = document.getElementById("send");
-let messages = document.querySelector(".messages");
 
 send.addEventListener("click", (e) => {
   if (text.value.length !== 0) {
@@ -129,16 +128,8 @@ inviteButton.addEventListener("click", (e) => {
 });
 
 socket.on("createMessage", (message, userName) => {
-  state = {
-    //check if member already present
-    members: state.members.indexOf(userName) !== -1  ? (members.push(username)) : (members),
-    //adds message
-    messages: [...state.messages,{
-      from: userName,
-      text: message
-    }]
-  }
-  
+  console.log("came here");
+  let messages = document.querySelector(".messages");
   messages.innerHTML =
     messages.innerHTML +
     `<div class="message">
@@ -147,4 +138,14 @@ socket.on("createMessage", (message, userName) => {
         }</span> </b>
         <span>${message}</span>
     </div>`;
+
+    state = {
+      //check if member already present
+      members: state.members.indexOf(userName) !== -1  ? (members.push(username)) : (members),
+      //adds message
+      messages: [...state.messages,{
+        from: userName,
+        text: message
+      }]
+    }
 });
